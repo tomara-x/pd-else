@@ -1,6 +1,6 @@
 ---
 title: bl.imp~
-
+hii!
 description: bandlimited two-sided impulse oscillator
 
 categories:
