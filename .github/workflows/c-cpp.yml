@@ -1,13 +1,13 @@
 name: C/C++ CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "master" ]
+    paths-ignore: ['md-help', 'Help-files']
   pull_request:
     branches: [ "master" ]
-    paths-ignore:
-      - 'md-help/**'
-      - 'Help-files/**'
+    paths-ignore: ['md-help', 'Help-files']
 
 jobs:
   Linux-Build:
