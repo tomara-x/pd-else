@@ -5,6 +5,9 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    paths-ignore:
+      - 'md-help/**'
+      - 'Help-files/**'
 
 jobs:
   Linux-Build:
