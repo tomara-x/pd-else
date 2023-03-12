@@ -11,7 +11,7 @@
 0;
 #X obj 307 6 cnv 15 250 40 empty empty empty 12 13 0 18 #7c7c7c #e0e4dc
 0;
-#N canvas 382 141 749 319 (subpatch) 0;
+#N canvas 382 141 749 319 lol 0;
 #X coords 0 -1 1 1 252 42 2 0 0;
 #X restore 306 5 pd;
 #X obj 346 13 cnv 10 10 10 empty empty ELSE 0 15 2 30 #7c7c7c #e0e4dc
