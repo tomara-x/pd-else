@@ -1,7 +1,6 @@
 name: C/C++ CI
 
 on:
-  workflow_dispatch:
   push:
     branches: [ "master" ]
     paths-ignore: ['md-help', 'Help-files']
