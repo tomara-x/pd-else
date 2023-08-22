@@ -26,13 +26,15 @@
 //
 // DSP utility routines.
 
+#define TEST
+
 #ifndef STMLIB_UTILS_DSP_DSP_H_
 #define STMLIB_UTILS_DSP_DSP_H_
 
 #include "stmlib/stmlib.h"
 
-#include <cmath>
 #include <math.h>
+#include <cstdint>
 
 namespace stmlib {
 
@@ -42,7 +44,10 @@ namespace stmlib {
 
 inline float Interpolate(const float* table, float index, float size) {
   index *= size;
+  if (index == size) { index--; }
+
   MAKE_INTEGRAL_FRACTIONAL(index)
+  if (!table || index_integral < 0) { return 0; }
   float a = table[index_integral];
   float b = table[index_integral + 1];
   return a + (b - a) * index_fractional;
@@ -140,17 +145,9 @@ inline float SoftClip(float x) {
   }
 #endif
   
-#ifdef TEST
   inline float Sqrt(float x) {
     return sqrtf(x);
   }
-#else
-  inline float Sqrt(float x) {
-    float result;
-    __asm ("vsqrt.f32 %0, %1" : "=w" (result) : "w" (x) );
-    return result;
-  }
-#endif
 
 inline int16_t SoftConvert(float x) {
   return Clip16(static_cast<int32_t>(SoftLimit(x * 0.5f) * 32768.0f));
